@@ -1,4 +1,7 @@
 FROM ubuntu:18.04
 RUN apt update && \
-    apt install java && \
-    apt install tomcat9
+    apt install openjdk-8-jdk -y && \
+    apt install tomcat9 -y
+ADD hello-1.0.war /var/lib/tomcat9/webapps/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]

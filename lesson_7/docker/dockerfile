@@ -1,0 +1,5 @@
+FROM maven:3.6.3-jdk-11
+ADD https://github.com/boxfuse/boxfuse-sample-java-war-hello/archive/refs/heads/master.tar.gz /app/project/repo.tar.gz
+WORKDIR /app/project
+RUN tar -xzf /app/project/repo.tar.gz -C /app/project --strip-components=1 && \
+    mvn clean install

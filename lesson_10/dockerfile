@@ -5,6 +5,6 @@ ENV CATALINA_HOME=/usr/share/tomcat9 \
 RUN apt update && \
     apt install openjdk-8-jdk -y && \
     apt install tomcat9 -y
-ADD /tmp/building/boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
+COPY /tmp/building/boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
